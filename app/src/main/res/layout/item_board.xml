@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="220dp"
+    android:layout_margin="5dp"
+    android:background="#00ff0000">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/basic_img"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/icon_basic" />
+
+        <TextView
+            android:id="@+id/basic_title"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/basic_img"
+            android:text="예시 제목입니다."
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/like"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/basic_title"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_like" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

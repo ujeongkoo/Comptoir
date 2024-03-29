@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/home_viewpager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="오늘의 Comptoir"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/dovemayo_gothic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager"
+                    android:layout_width="350dp"
+                    android:layout_height="250dp" >
+
+                </androidx.viewpager2.widget.ViewPager2>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/home_btn_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Comptoir 시작하기"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/dovemayo_gothic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btn_delivery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_home_btn"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/icon_pizza"
+                    android:textColor="@color/black"
+                    android:text="배달음식" />
+
+                <Button
+                    android:id="@+id/btn_living"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/shape_home_btn"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/icon_shampoo"
+                    android:textColor="@color/black"
+                    android:text="생활용품" />
+
+                <Button
+                    android:id="@+id/btn_ott"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/shape_home_btn"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/icon_netflix"
+                    android:textColor="@color/black"
+                    android:text="OTT" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:id="@+id/btn_fashion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_home_btn"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/icon_clothes"
+                    android:textColor="@color/black"
+                    android:text="패션" />
+
+                <Button
+                    android:id="@+id/btn_trip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/shape_home_btn"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/icon_trip"
+                    android:textColor="@color/black"
+                    android:text="여행" />
+
+                <Button
+                    android:id="@+id/btn_brand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/shape_home_btn"
+                    android:backgroundTint="@color/white"
+                    android:drawableTop="@drawable/icon_chanel"
+                    android:textColor="@color/black"
+                    android:text="브랜드" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btn_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#00ff0000"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/icon_write" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

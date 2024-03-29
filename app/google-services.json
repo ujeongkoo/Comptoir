@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "316051819093",
+    "project_id": "comptoir-af6c5",
+    "storage_bucket": "comptoir-af6c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316051819093:android:ba09eea7fdc248c225e2dc",
+        "android_client_info": {
+          "package_name": "org.techtown.comptoir"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg1vWesubU65u5lEMBd6DuB94SPD1t-q8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

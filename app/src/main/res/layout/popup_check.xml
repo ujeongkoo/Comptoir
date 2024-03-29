@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/popup_kind_check"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="상품 종류: 예시"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/popup_place_check"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="수령 장소: 예시"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/popup_twice_check"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="상품 종류와 수령 장소를 확인하였습니다."
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:layout_margin="5dp"
+    android:background="#00ff0000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/like_basic_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/icon_basic" />
+
+        <LinearLayout
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/like_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예시 제목입니다."
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/like_content"
+                android:layout_width="275dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="예시 내용입니다."
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="275dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="10dp"
+                android:gravity="left">
+
+                <ImageView
+                    android:id="@+id/like_person_img"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/icon_person2" />
+
+                <TextView
+                    android:id="@+id/like_person_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="0"
+                    android:fontFamily="@font/dovemayo_gothic" />
+
+                <ImageView
+                    android:id="@+id/like_like"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:src="@drawable/icon_like" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

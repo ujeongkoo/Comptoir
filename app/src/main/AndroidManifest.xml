@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,18 +16,68 @@
         android:theme="@style/Theme.Comptoir"
         tools:targetApi="31">
         <activity
+            android:name=".CollectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WriterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LikeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BrandActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FashionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OTTActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LiveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RewriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ContentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DeliveryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WriteActivity"
+            android:exported="false"
+            android:label="@string/title_activity_write"
+            android:theme="@style/Theme.Comptoir" />
+        <activity
+            android:name=".JoinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

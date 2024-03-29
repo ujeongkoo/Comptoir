@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="borderList">
+        <item>배달음식</item>
+        <item>생활용품</item>
+        <item>OTT</item>
+        <item>패션</item>
+        <item>여행</item>
+        <item>브랜드</item>
+    </string-array>
+
+</resources>
