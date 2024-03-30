@@ -37,7 +37,7 @@ class CollectActivity : AppCompatActivity() {
         val postRef = firestore.collection("posts").document(postId)
         postRef.get()
             .addOnSuccessListener { documentSnapshot ->
-                val orderList = documentSnapshot.get("OrderList") as? List<String>
+                val orderList = documentSnapshot.get("OrderList") as? List<HashMap<String, String>>
                 if (orderList != null) {
                     (recyclerView.adapter as? CollectAdapter)?.setData(postId, orderList)
                 }

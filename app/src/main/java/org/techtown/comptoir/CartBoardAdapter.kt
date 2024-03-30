@@ -90,7 +90,7 @@ class CartBoardAdapter(private val context: Context, private var postIds: List<S
         val left = target - now
         holder.itemleft.text = "${left}명 남았습니다."
 
-        val user = auth.currentUser?.uid
+        val user = auth.currentUser?.uid!!
         val likeList = currentPost["likeList"] as? MutableList<String> ?: mutableListOf()
         val likeimg = if (likeList.contains(user)) R.drawable.icon_likefull else R.drawable.icon_like
         holder.itemlike.setImageResource(likeimg)
@@ -105,10 +105,13 @@ class CartBoardAdapter(private val context: Context, private var postIds: List<S
         }
 
         holder.itemdelete.setOnClickListener {
-            if (user != null) {
+            if (postId != null) {
+                val deleteRef = FirebaseFirestore.getInstance().collection("posts").document(postId)
+                deleteRef.delete()
                 val userRef = FirebaseFirestore.getInstance().collection("users").document(user)
+                userRef.update("WriterPost", FieldValue.arrayRemove(postId))
                 userRef.update("cartList", FieldValue.arrayRemove(postId))
-                Toast.makeText(context, "장바구니에서 삭제되었습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "게시물이 삭제되었습니다.", Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
-class CollectAdapter(private val context: Context, private var postId: String, private var orderList: List<String> = ArrayList()) :
+class CollectAdapter(private val context: Context, private var postId: String, private var orderList: List<HashMap<String, String>> = ArrayList()) :
         RecyclerView.Adapter<CollectAdapter.CollectViewHolder>() {
 
             class CollectViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -33,56 +33,54 @@ class CollectAdapter(private val context: Context, private var postId: String, p
     }
 
     override fun onBindViewHolder(holder: CollectAdapter.CollectViewHolder, position: Int) {
-        val postId = postId
+        try {
+            val postRef = firebase.collection("posts").document(postId)
 
-        val postRef = firebase.collection("posts").document(postId)
+            postRef.get()
+                .addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot != null) {
+                        val orderList =
+                            documentSnapshot.get("OrderList") as? List<HashMap<String, Any>>
+                        if (orderList != null && position < orderList.size) {
+                            val order = orderList[position]
+                            val kindList = order["kind"] as? ArrayList<String> ?: arrayListOf()
+                            val userId = order["userId"] as? String ?: ""
 
-        postRef.get()
-            .addOnSuccessListener { documentSnapshot ->
-                if (documentSnapshot != null) {
-
-                    val orderList = documentSnapshot.get("OrderList") as? List<HashMap<String, String>>
-                    try {
-                        if (orderList != null) {
-                            for (order in orderList) {
-                                val kind = order["kind"] as ArrayList<String>
-                                val userId = order["userId"] as String
-
-                                val userRef = firebase.collection("users").document(userId)
-                                userRef.get()
-                                    .addOnSuccessListener { documentSnapshot ->
-                                        val imageUrl = documentSnapshot.getString("profileImageUrl")
-                                        if (imageUrl != null) {
-                                            Glide.with(holder.itemView)
-                                                .load(imageUrl)
-                                                .into(holder.itemimage)
-                                        } else {
-                                            holder.itemimage.setImageResource(R.drawable.icon_basic)
-                                        }
-                                        val name = documentSnapshot.getString("name")
-                                        holder.itemname.text = "${name}"
+                            val userRef = firebase.collection("users").document(userId)
+                            userRef.get()
+                                .addOnSuccessListener { documentSnapshot ->
+                                    val imageUrl = documentSnapshot.getString("profileImageUrl")
+                                    if (imageUrl != null) {
+                                        Glide.with(holder.itemView)
+                                            .load(imageUrl)
+                                            .into(holder.itemimage)
+                                    } else {
+                                        holder.itemimage.setImageResource(R.drawable.icon_basic)
                                     }
-                                    .addOnFailureListener { e ->
-                                        Log.e("userRefError", "${e.message}")
-                                    }
-                                holder.itemlist.text = "${kind}"
-                            }
+                                    val name = documentSnapshot.getString("name")
+                                    holder.itemname.text = name
+
+                                    holder.itemlist.text = kindList.joinToString(", ")
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.e("userRefError", "${e.message}")
+                                }
                         }
-                    } catch (e: Exception) {
-                        Log.e("orderListError", "${e.message}")
                     }
                 }
-            }
-            .addOnFailureListener { e ->
-                Log.e("postRefError", "${e.message}")
-            }
+                .addOnFailureListener { e ->
+                    Log.e("postRefError", "${e.message}")
+                }
+        } catch (e: Exception) {
+            Log.e("postError", "${e.message}")
+        }
     }
 
     override fun getItemCount(): Int {
         return orderList.size
     }
 
-    fun setData(newPostId: String, newOrderList: List<String>) {
+    fun setData(newPostId: String, newOrderList: List<HashMap<String, String>>) {
         postId = newPostId
         orderList = newOrderList
         notifyDataSetChanged()
